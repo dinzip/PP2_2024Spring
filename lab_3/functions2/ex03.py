@@ -1,8 +1,7 @@
 from Dict_of_movies import movies
 
-def categories(category):
-    l = []
-    for i in movies:
-        if i["category"] == category:
-            l.append(i['name'])
+def categories(category = "Romance"):
+    l = [i['name'] for i in movies if i['category']==category]
     return l
+
+# print(categories())
