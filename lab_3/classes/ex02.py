@@ -1,17 +1,16 @@
 class Shape:
     def __init__(self):
-        self.Area = 0
+        self.a = 0
     def area(self):
-        return self.Area
+        print(self.a)
 
 class Square(Shape):
     def __init__(self, length):
         Shape.__init__(self)
         self.length = length
-    def area(self):
-        return self.length**2
+        self.a = self.length**2
 
 x1 = Shape()
 x2 = Square(4)
-# print(x1.area())
-# print(x2.area())
+# x1.area()
+# x2.area()
