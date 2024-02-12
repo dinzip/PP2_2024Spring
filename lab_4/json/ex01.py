@@ -1,12 +1,12 @@
 import json
-
-f = open('sample-data.json')
-di = json.load(f)
-print('''
+heading = '''
 Interface Status
 ================================================================================
 DN                                                 Description           Speed    MTU  
--------------------------------------------------- --------------------  ------  ------''')
-main_info = di["imdata"]
-for i in main_info:
-    print(f'{i["l1PhysIf"]["attributes"]["dn"]}{' '* (30+42-len(i["l1PhysIf"]["attributes"]["dn"]))}{i["l1PhysIf"]["attributes"]["speed"]}   {i["l1PhysIf"]["attributes"]["mtu"]}')
+-------------------------------------------------- --------------------  ------  ------'''
+
+with open('sample-data.json') as f:
+    main_data = json.load(f)
+    print(heading)
+    for i in main_data["imdata"]:
+        print(f'{i["l1PhysIf"]["attributes"]["dn"]:72}{i["l1PhysIf"]["attributes"]["speed"]:10}{i["l1PhysIf"]["attributes"]["mtu"]}')
