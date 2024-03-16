@@ -140,9 +140,10 @@ def upper_block(going, stopped, current_music_order):
     #button:
     if going and not stopped:
         image = pygame.image.load(path_to_run_img).convert()
+        win.blit(image, (30, 14))
     else:
         image = pygame.image.load(path_to_stop_img).convert()
-    win.blit(image, (30, 15))
+        win.blit(image, (30, 15))
 
     #image:
     x, y = 170, 10
