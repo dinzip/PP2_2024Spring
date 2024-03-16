@@ -5,7 +5,7 @@ pygame.init()
 screen_w = 800
 screen_h = 370
 win = pygame.display.set_mode((screen_w, screen_h))
-pygame.display.set_caption('Musics')
+pygame.display.set_caption('Music_player')
 
 # needed colors:
 white = (255, 255, 255)
