@@ -66,10 +66,10 @@ theme_icon = [moon, sun]
 class Music:
     def __init__(self, path_folder):
         content = os.listdir(path_folder)
-        # print(content, content[::-1])
+
         path_image = [i for i in content if re.search('(jpeg)|(png)', i)][0]
         path_music = [i for i in content if re.search('.mp3', i)][0]
-        # print(path_image, path_music)
+
         self.path_image = os.path.join(path_folder, path_image) # get a full path from initial path to image/music path
         self.path_music = os.path.join(path_folder, path_music)
 
@@ -78,7 +78,6 @@ class Music:
         self.song_name, self.author_name = self.get_names(path_music) # split to song and author names
 
         self.time, self.time_text = self.get_time()
-        print(self.time, self.time_text)
 
     def get_rounded_corner_image(self, image):
         size = image.get_size() # assign width and height of image to size
@@ -217,7 +216,7 @@ def upper_block(going, stopped, current_music_order):
     pygame.draw.line(win, line_background_color[theme], (x+70, y+51), (x+430, y+51), 3) #x+430 since line sjould end when time_text ends. y+51 - line after author&song names
     if going or stopped:
         last_played = current_music_order
-        # print(pygame.mixer.music.get_pos(), ' - ', music.time * 1000)
+
         portion = pygame.mixer.music.get_pos() / (music.time * 1000)
         dx = x + 70 + (430-70)*portion
         dx = int(dx)
@@ -250,7 +249,6 @@ def change_order(dx):
         running = stopped = False
         if pygame.mixer.music.get_busy(): pygame.mixer.music.stop()
 
-    print("active_order:", active_order)
 
 def change_val(dx):
     global sound_val
@@ -291,7 +289,6 @@ while run:
             if event.key == pygame.K_RIGHT:
                 change_val(+0.05) # +5%
             if event.key == pygame.K_KP_ENTER or event.key == pygame.K_RETURN:
-                print("playing")
                 musics_list[active_order].play_music()
                 running = True
             if event.key == pygame.K_SPACE:
@@ -309,7 +306,6 @@ while run:
             if event.key == pygame.K_r:
                 rounded_icons = not rounded_icons
         if event.type == SONG_END: # if sing ended without us, the next song will start
-            print("ENDED")
             if last_played == active_order and active_order < len(musics_list):
                 next_play = True
             running = stopped = False
