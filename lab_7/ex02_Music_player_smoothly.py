@@ -38,7 +38,7 @@ line_background_color = [(67, 67, 67), (220, 220, 220)]
 line_middle_color = [(120, 120, 120), (167, 174, 174)]
 line_foreground_color = [(218, 218, 220), (31, 94, 216)]
 
-main_path = r'C:\Users\ННЛОТ\Desktop\subjects\sem1\labs\PP2_2024spring\lab_7\music'
+main_path = r'music'
 get_path = lambda x: main_path  + '\\addition\\' + x 
 # run/stop images:
 run5 = pygame.image.load(get_path('run7.jpg'))
