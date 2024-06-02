@@ -77,8 +77,6 @@ def select_by_start_number(start_number):
 
 # QUERYING:
 try:
-    # select_by_start_name('Mi')
-    # select_by_start_surname('Mi')
     select_by_start_number('9')
     for row in cursor.fetchall():
         print(row)
